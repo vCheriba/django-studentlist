@@ -25,7 +25,17 @@ SECRET_KEY = "django-insecure-965!b8&geh9tl%la@tvh=s*k&$stdbjl%2*eb4&-verw7r=bxg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -40,7 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework_simplejwt",
     "rest_framework",
-    "api",
+    "students",
 ]
 
 MIDDLEWARE = [
@@ -54,18 +64,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5500",
-    "http://127.0.0.1:5500",
-]
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES":(
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-}
-
-ROOT_URLCONF = "studentlist.urls"
+ROOT_URLCONF = "studentsapp.urls"
 
 TEMPLATES = [
     {
@@ -83,7 +82,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "studentlist.wsgi.application"
+WSGI_APPLICATION = "studentsapp.wsgi.application"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES":(
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
 
 
 # Database
