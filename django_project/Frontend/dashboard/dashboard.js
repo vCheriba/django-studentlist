@@ -49,9 +49,7 @@ function logOut() {
 }
 
 function editStudent(id) {
-  console.log(
-    `Es handelt sich um den Studenten ${id} den wir bearbeiten wollen`
-  );
+  window.location.href = `edit.html?id=${id}`
 }
 
 function deleteStudent(id) {
